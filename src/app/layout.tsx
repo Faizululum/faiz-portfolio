@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Space_Grotesk, Inter } from "next/font/google";
+import { Navbar } from "@/components/layout/Navbar";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           defaultTheme="dark"
           enableSystem={false}
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
