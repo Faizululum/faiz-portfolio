@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
 import ShapeGrid from "@/components/ShapeGrid";
-import TerminalPortfolio from "../TerminalPortfolio";
+import TerminalPortfolio from "@/components/TerminalPortfolio";
 
 const ROLES = ["Frontend Web Developer.", "UI/UX Designer.", "Full Stack Developer."];
 
@@ -48,7 +48,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6 py-28 sm:px-10 lg:px-16 transition-colors"
+      className="relative z-35 flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6 pt-28 pb-12 sm:px-10 lg:px-16 transition-colors"
     >
       <div className="pointer-events-none absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]">
         <ShapeGrid
