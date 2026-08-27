@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import {
   Sheet,
@@ -13,34 +14,43 @@ import {
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV_LINKS = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#work", label: "My Work" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#home", id: "home", label: "Home" },
+  { href: "/#about", id: "about", label: "About" },
+  { href: "/#services", id: "services", label: "Services" },
+  { href: "/#work", id: "work", label: "My Work" },
+  { href: "/#contact", id: "contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeId, setActiveId] = useState("home");
+  const [scrollActiveId, setScrollActiveId] = useState("home");
   const [open, setOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  const currentActiveId = pathname.startsWith("/work")
+    ? "work"
+    : scrollActiveId;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener("scroll", onScroll);
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    const sections = NAV_LINKS.map((l) =>
-      document.getElementById(l.href.replace("#", "")),
-    ).filter((el): el is HTMLElement => el !== null);
+    if (pathname !== "/") return;
+
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.id)).filter(
+      (el): el is HTMLElement => el !== null,
+    );
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            setScrollActiveId(entry.target.id);
           }
         });
       },
@@ -49,7 +59,7 @@ export function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   return (
     <header
@@ -59,10 +69,10 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-10">
         {/* Logo */}
         <Link
-          href="#home"
+          href="/#home"
           className="flex items-center gap-2 text-xl font-bold"
         >
-          <Image src="/img/logo_f.png" alt="Logo" width={32} height={32} />
+          <Image src="/img/logo-tr.png" alt="Logo" width={32} height={32} />
           <div>
             Faiz<span className="text-primary">Dev</span>
           </div>
@@ -75,7 +85,7 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors hover:text-primary
-                ${activeId === link.href.replace("#", "") ? "text-primary" : "text-foreground"}`}
+                ${currentActiveId === link.id ? "text-primary" : "text-foreground"}`}
             >
               {link.label}
             </Link>
@@ -102,7 +112,7 @@ export function Navbar() {
                     href={link.href}
                     onClick={() => setOpen(false)}
                     className={`text-lg font-medium transition-colors hover:text-primary
-                      ${activeId === link.href.replace("#", "") ? "text-primary" : "text-foreground"}`}
+                      ${currentActiveId === link.id ? "text-primary" : "text-foreground"}`}
                   >
                     {link.label}
                   </Link>
