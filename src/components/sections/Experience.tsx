@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { experiences } from "../../../data/portfolio";
-import type { Experience } from "../../../data/portfolio";
+import { experiences } from "@/data/portfolio";
+import type { Experience } from "@/data/portfolio";
 import { ExperienceCard } from "../ExperienceCard";
 
 export function ExperienceSection() {

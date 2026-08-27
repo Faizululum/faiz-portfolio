@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import { Experience } from "../../data/portfolio";
+import { Experience } from "@/data/portfolio";
 
 export function ExperienceCard({ exp }: { exp: Experience }) {
   return (
@@ -21,7 +21,10 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
       {/* Poin */}
       <ul className="mt-4 flex flex-col gap-3">
         {exp.points.map((point) => (
-          <li key={point} className="flex items-start gap-2 text-sm leading-relaxed text-muted">
+          <li
+            key={point}
+            className="flex items-start gap-2 text-sm leading-relaxed text-muted"
+          >
             <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-primary" />
             <span>{point}</span>
           </li>
