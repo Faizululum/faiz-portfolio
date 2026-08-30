@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import './ShapeGrid.css';
 
 type CanvasStrokeStyle = string | CanvasGradient | CanvasPattern;
 
@@ -434,7 +433,7 @@ const ShapeGrid: React.FC<ShapeGridProps> = ({
     };
   }, [direction, speed, borderColor, hoverFillColor, squareSize, shape, hoverTrailAmount]);
 
-  return <canvas ref={canvasRef} className="shapegrid-canvas"></canvas>;
+  return <canvas ref={canvasRef} className="w-full h-full border-none block"></canvas>;
 };
 
 export default ShapeGrid;

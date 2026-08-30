@@ -5,6 +5,48 @@ import { ProjectGallery } from "@/components/ProjectGallery";
 import { ShareButton } from "@/components/ShareButton";
 import { projects } from "@/data/portfolio";
 import { FaGithub } from "react-icons/fa6";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Project Not Found",
+    };
+  }
+
+  return {
+    title: `${project.title} | Portfolio Faizul Ulum`,
+    description: project.summary,
+    openGraph: {
+      title: project.title,
+      description: project.summary,
+      url: `https://faizulum.vercel.app/work/${project.slug}`,
+      siteName: "Faizul Ulum Portfolio",
+      images: [
+        {
+          url: project.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.summary,
+      images: [project.thumbnail],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -61,7 +103,7 @@ export default async function ProjectDetailPage({
             {project.year} · {project.role}
           </p>
 
-          <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base text-justify">
             {project.description}
           </p>
 
