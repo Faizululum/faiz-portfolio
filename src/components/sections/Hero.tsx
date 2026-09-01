@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
+import { motion, Variants } from "framer-motion";
 import ShapeGrid from "@/components/ShapeGrid";
 import TerminalPortfolio from "@/components/TerminalPortfolio";
 
@@ -44,6 +45,41 @@ function useTypedRoles(roles: string[]) {
 
 export function Hero() {
   const typedRole = useTypedRoles(ROLES);
+  const [borderColor, setBorderColor] = useState("#5b6472");
+
+  useEffect(() => {
+    const frameId = requestAnimationFrame(() => {
+      const primaryColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--primary")
+        .trim();
+
+      if (primaryColor) {
+        setBorderColor(primaryColor);
+      }
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, []);
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
 
   return (
     <section
@@ -55,7 +91,7 @@ export function Hero() {
           speed={0.1}
           squareSize={36}
           direction="diagonal"
-          borderColor="#5b6472"
+          borderColor={borderColor}
           hoverFillColor="#00eeff15"
           shape="hexagon"
           hoverTrailAmount={1}
@@ -64,11 +100,20 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-12">
         {/* Profile & CTA */}
-        <div className="flex flex-col items-start space-y-5 text-left lg:col-span-7">
-          <div className="flex items-center gap-3">
-            <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-primary shadow-md">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-start space-y-5 text-left lg:col-span-7"
+        >
+          <motion.div 
+            variants={itemVariants} 
+            whileHover="hover"
+            className="group flex w-fit cursor-default items-center gap-3"
+          >
+            <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-primary shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_15px_var(--primary)]">
               <Image
-                src="/img/Foto_2.png"
+                src="/img/photo_2.png"
                 alt="Foto Muhammad Faizul Ulum"
                 fill
                 priority
@@ -76,32 +121,57 @@ export function Hero() {
                 className="object-cover"
               />
             </div>
-            <p className="text-base font-medium text-muted sm:text-lg">
-              Hello, it&apos;s me 👋
+            
+            <p className="flex items-center gap-1.5 text-base font-medium text-muted sm:text-lg">
+              Hello, it&apos;s me
+              <motion.span
+                variants={{
+                  hover: {
+                    rotate: [0, 20, -10, 20, -10, 0],
+                    transition: {
+                      duration: 1,
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      ease: "easeInOut"
+                    },
+                  },
+                }}
+                style={{ transformOrigin: "70% 70%" }}
+                className="inline-block"
+              >
+                👋
+              </motion.span>
             </p>
-          </div>
+          </motion.div>
 
-          <h1 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+          <motion.h1
+            variants={itemVariants}
+            className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl"
+          >
             Faizul <span className="text-primary">Ulum</span>
-          </h1>
+          </motion.h1>
 
-          {/* Role Animation */}
-          <h2 className="font-display text-xl font-semibold text-muted sm:text-2xl">
+          <motion.h2
+            variants={itemVariants}
+            className="font-display text-xl font-semibold text-muted sm:text-2xl"
+          >
             And I&apos;m a{" "}
             <span className="text-primary">
               {typedRole}
               <span className="animate-pulse">|</span>
             </span>
-          </h2>
+          </motion.h2>
 
-          {/* Description */}
-          <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-            Mahasiswa aktif Informatika di UPN &quot;Veteran&quot; Jawa Timur
-            dengan fokus di Fullstack Web Development. Tertarik membangun solusi
-            digital yang inovatif, terstruktur, dan berdampak positif.
-          </p>
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
-            <Link 
+          <motion.p
+            variants={itemVariants}
+            className="max-w-xl text-sm leading-relaxed text-muted sm:text-base text-justify"
+          >
+            Full-Stack Developer & Informatics graduate specializing in the modern JavaScript ecosystem (Next.js, React, Node.js). 
+            Passionate about building scalable web applications, smart automation systems, and delivering user-centric digital solutions.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="mt-2 flex flex-wrap items-center justify-center gap-4">
+            <Link
               href="#contact"
               className="glow-primary flex items-center gap-2 rounded-full bg-primary
                         px-7 py-3 text-sm font-semibold text-primary-foreground
@@ -120,10 +190,10 @@ export function Hero() {
               My Resume
               <Download size={16} />
             </Link>
-          </div>
+          </motion.div>
 
           {/* Social Links & Email */}
-          <div className="flex flex-wrap items-center gap-4 pt-4 text-muted">
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-4 text-muted">
             <div className="flex items-center gap-2.5 border-r border-border pr-4">
               <Link
                 href="https://github.com/Faizululum"
@@ -154,9 +224,17 @@ export function Hero() {
             <span className="font-mono text-xs text-muted sm:text-sm">
               faizululum25@gmail.com
             </span>
-          </div>
-        </div>
-        <TerminalPortfolio />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="lg:col-span-5"
+        >
+          <TerminalPortfolio />
+        </motion.div>
       </div>
     </section>
   );

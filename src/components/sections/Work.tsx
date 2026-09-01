@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects } from "@/data/portfolio";
 
@@ -11,32 +12,50 @@ export function Work() {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const visibleProjects = featuredProjects.slice(0, visibleCount);
-
   const canLoadMore = visibleCount < 6 && visibleCount < featuredProjects.length;
 
   return (
     <section id="work" className="mx-auto max-w-6xl px-6 py-24 sm:px-10">
-      <div className="mb-16 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "0px 0px -50% 0px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="mb-16 text-center"
+      >
         <p className="text-sm font-medium uppercase tracking-widest text-primary">
           Portfolio
         </p>
         <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
-          My <span className="text-primary">Work</span>
+          Featured <span className="text-primary">Work</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
-          Beberapa project pilihan yang pernah saya kerjakan, mulai dari web
-          app, e-commerce, hingga UI/UX design.
+          A curated selection of my recent projects, showcasing scalable web applications, interactive UI/UX designs, and full-stack solutions.
         </p>
-      </div>
+      </motion.div>
 
       {/* Project List */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-        {visibleProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+        {visibleProjects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+            transition={{ duration: 0.6, delay: (index % 3) * 0.15, ease: "easeOut" }}
+          >
+            <ProjectCard project={project} />
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-12 flex justify-center">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="mt-12 flex justify-center"
+      >
         {canLoadMore ? (
           <button
             type="button"
@@ -50,10 +69,10 @@ export function Work() {
             href="/work"
             className="flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
           >
-            Lihat Selengkapnya <ArrowRight size={16} />
+            View All Projects <ArrowRight size={16} />
           </Link>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }
