@@ -51,7 +51,7 @@ export function ProjectDetailCard({ project }: { project: Project }) {
       <div className="w-full flex-1 lg:w-1/2">
         <div className="flex items-center gap-3">
           <Link href={`/work/${project.slug}`} className="flex-1">
-            <h2 className="font-display text-xl font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary md:text-2xl">
+            <h2 className="text-xl font-bold tracking-tight text-foreground transition-colors duration-300 group-hover:text-primary md:text-2xl">
               {project.title}
             </h2>
           </Link>
@@ -80,7 +80,7 @@ export function ProjectDetailCard({ project }: { project: Project }) {
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-border bg-surface-muted/50 px-3 py-1 text-sm font-medium text-muted backdrop-blur-lg transition-colors hover:border-primary/40 hover:text-foreground"
+              className="cursor-default rounded-full border border-border bg-surface-muted/50 px-3 py-1 text-sm font-medium text-muted backdrop-blur-lg transition-colors hover:border-primary/40 hover:text-primary"
             >
               {tech}
             </span>
