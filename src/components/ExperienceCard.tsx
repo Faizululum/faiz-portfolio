@@ -3,7 +3,7 @@ import { Experience } from "@/data/portfolio";
 
 export function ExperienceCard({ exp }: { exp: Experience }) {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-6">
+    <div className="rounded-2xl border border-border bg-surface p-6 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-2xl group-hover:shadow-primary/10">
       {/* Badge period & type */}
       <div className="mb-4 flex gap-2">
         <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
@@ -15,7 +15,9 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
       </div>
 
       {/* Role & company */}
-      <h3 className="text-lg font-bold sm:text-xl">{exp.role}</h3>
+      <h3 className="text-lg font-bold transition-colors duration-300 group-hover:text-primary sm:text-xl">
+        {exp.role}
+      </h3>
       <p className="mt-1 text-sm font-medium text-primary">{exp.company}</p>
 
       {/* Poin */}
@@ -39,7 +41,7 @@ export function ExperienceCard({ exp }: { exp: Experience }) {
         {exp.techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-md border border-primary/30 px-2.5 py-1 text-xs font-medium text-primary"
+            className="rounded-md border border-primary/30 px-2.5 py-1 text-xs font-medium text-primary transition-colors group-hover:bg-primary/5"
           >
             {tech}
           </span>

@@ -5,20 +5,20 @@ import { useState, useEffect } from "react";
 const terminalCommands = [
   {
     cmd: "whoami",
-    outputText: "Muhammad Faizul Ulum, Full Stack Developer",
+    outputText: "Muhammad Faizul Ulum, Full-Stack Developer",
+  },
+  {
+    cmd: "education",
+    outputText: "Bachelor of Informatics, UPN 'Veteran' Jawa Timur",
   },
   {
     cmd: "status",
     hasDot: true,
-    outputText: "Terbuka untuk peluang baru",
+    outputText: "Available for full-time opportunities",
   },
   {
     cmd: "skills --top 4",
-    outputText: "Next.js · Express · Figma · Laravel",
-  },
-  {
-    cmd: "location",
-    outputText: "Gresik, East Java, Indonesia",
+    outputText: "Next.js · TypeScript · Node.js · Figma",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function TerminalPortfolio() {
 
                 {/* Output */}
                 {(isFinished || isOutputPhase) && (
-                  <div className="flex items-center gap-2 text-muted ml-5">
+                  <div className="flex items-center gap-2 text-muted ml-3">
                     <span>→</span>
                     {item.hasDot && (
                       <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />

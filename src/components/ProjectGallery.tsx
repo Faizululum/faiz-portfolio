@@ -40,7 +40,7 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
               alt={`${alt} - tampilan ${selectedIndex + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 75vw"
-              className="cursor-zoom-in object-cover transition-transform duration-500 hover:scale-105"
+              className="cursor-zoom-in object-contain transition-transform duration-500 hover:scale-105"
             />
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted">
