@@ -16,6 +16,7 @@ export function ProjectCard({ project }: { project: Project }) {
           src={project.thumbnail}
           alt={project.title}
           fill
+          loading="eager"
           sizes="(min-width: 768px) 33vw, 100vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />

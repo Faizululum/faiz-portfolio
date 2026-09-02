@@ -45,29 +45,31 @@ export default function AllWorkPage() {
       </motion.div>
 
       {/* Filter pills */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-12 mt-8 flex w-full snap-x snap-mandatory gap-2 overflow-x-auto pb-4 
-                   [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
-      >
-        {categories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            onClick={() => handleCategoryChange(category)}
-            className={`shrink-0 snap-start cursor-pointer rounded-full border px-5 py-2 text-sm font-medium transition-all duration-300
-              ${
-                activeCategory === category
-                  ? "border-primary bg-primary text-primary-foreground shadow-md shadow-primary/20"
-                  : "border-border bg-surface text-muted hover:border-primary/50 hover:text-primary"
-              }`}
-          >
-            {category}
-          </button>
-        ))}
-      </motion.div>
+      <div className="mb-12 mt-8 flex w-full justify-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex max-w-full snap-x snap-mandatory gap-2 overflow-x-auto pb-4 px-1
+                    [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] scrollbar-none"
+        >
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => handleCategoryChange(category)}
+              className={`shrink-0 snap-start cursor-pointer rounded-full border px-5 py-2 text-sm font-medium transition-all duration-300
+                ${
+                  activeCategory === category
+                    ? "border-primary bg-primary text-primary-foreground shadow-md shadow-primary/20"
+                    : "border-border bg-surface text-muted hover:border-primary/50 hover:text-primary"
+                }`}
+            >
+              {category}
+            </button>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Project Detail Card */}
       {visibleProjects.length > 0 ? (
