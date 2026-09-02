@@ -40,7 +40,7 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
               alt={`${alt} - tampilan ${selectedIndex + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 75vw"
-              className="cursor-zoom-in object-contain transition-transform duration-500 hover:scale-105"
+              className="cursor-zoom-in object-cover transition-transform duration-500 hover:scale-105"
             />
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted">
@@ -59,13 +59,13 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
             <>
               <button
                 onClick={handlePrevious}
-                className="absolute left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-foreground opacity-0 shadow-lg transition-all hover:scale-110 hover:bg-background group-hover:opacity-100"
+                className="absolute cursor-pointer left-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-foreground opacity-0 shadow-lg transition-all hover:scale-110 hover:bg-background group-hover:opacity-100"
               >
                 <ChevronLeft size={22} />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-foreground opacity-0 shadow-lg transition-all hover:scale-110 hover:bg-background group-hover:opacity-100"
+                className="absolute cursor-pointer right-4 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-surface text-foreground opacity-0 shadow-lg transition-all hover:scale-110 hover:bg-background group-hover:opacity-100"
               >
                 <ChevronRight size={22} />
               </button>
@@ -86,7 +86,7 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
               <button
                 key={`thumb-${index}`}
                 onClick={() => setSelectedIndex(index)}
-                className={`relative aspect-video w-28 md:w-full shrink-0 overflow-hidden rounded-md border-2 transition-all duration-300
+                className={`relative cursor-pointer aspect-video w-28 md:w-full shrink-0 overflow-hidden rounded-md border-2 transition-all duration-300
                   ${
                     selectedIndex === index
                       ? "scale-105 border-primary shadow-md ring-2 ring-primary/30"
@@ -114,7 +114,7 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
         >
           <button
             onClick={() => setIsLightboxOpen(false)}
-            className="absolute right-4 top-4 z-50 rounded-full bg-white/10 p-2 text-white/70 transition-all hover:bg-white/20 hover:text-white md:right-6 md:top-6"
+            className="absolute cursor-pointer right-4 top-4 z-50 rounded-full bg-white/10 p-2 text-white/70 transition-all hover:bg-white/20 hover:text-white md:right-6 md:top-6"
           >
             <X size={28} />
           </button>
@@ -136,13 +136,13 @@ export function ProjectGallery({ images, alt }: ProjectGalleryProps) {
             <>
               <button
                 onClick={handlePrevious}
-                className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 md:left-8"
+                className="absolute cursor-pointer left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 md:left-8"
               >
                 <ChevronLeft size={28} />
               </button>
               <button
                 onClick={handleNext}
-                className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 md:right-8"
+                className="absolute cursor-pointer right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 md:right-8"
               >
                 <ChevronRight size={28} />
               </button>

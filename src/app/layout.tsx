@@ -13,11 +13,53 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Faiz Portfolio",
-  description: "Portfolio website of Faizul Ulum",
+  metadataBase: new URL("https://faizulum.vercel.app"),
+  
+  title: {
+    default: "Muhammad Faizul Ulum | Full-Stack Developer",
+    template: "%s | Faizul Ulum",
+  },
+  description: "Portfolio of Muhammad Faizul Ulum, a Full-Stack Developer and UI/UX enthusiast specializing in modern JavaScript ecosystem (Next.js, React, Node.js).",
+  keywords: [
+    "Faizul Ulum",
+    "Muhammad Faizul Ulum",
+    "Full-Stack Developer",
+    "Frontend Developer",
+    "UI/UX Designer",
+    "Next.js",
+    "React",
+    "Gresik",
+    "Indonesia"
+  ],
+  authors: [{ name: "Muhammad Faizul Ulum" }],
+  creator: "Muhammad Faizul Ulum",
+  
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://faizulum.vercel.app",
+    title: "Muhammad Faizul Ulum | Full-Stack Developer",
+    description: "Portfolio of Muhammad Faizul Ulum, a Full-Stack Developer and UI/UX enthusiast.",
+    siteName: "Faizul Ulum Portfolio",
+    images: [
+      {
+        url: "/img/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Faizul Ulum Portfolio Website",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Muhammad Faizul Ulum | Full-Stack Developer",
+    description: "Portfolio of Muhammad Faizul Ulum, a Full-Stack Developer and UI/UX enthusiast.",
+    images: ["/img/og-image.png"],
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

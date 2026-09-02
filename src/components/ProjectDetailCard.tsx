@@ -40,7 +40,7 @@ export function ProjectDetailCard({ project }: { project: Project }) {
 
           {/* Category Badge */}
           <div className="absolute left-4 top-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-            <span className="rounded-full bg-surface/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground shadow-sm backdrop-blur-md">
+            <span className="rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary-foreground shadow-sm bg-primary">
               {project.type}
             </span>
           </div>

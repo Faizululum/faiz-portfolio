@@ -22,7 +22,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title} | Portfolio Faizul Ulum`,
+    title: `${project.title} | Portfolio`,
     description: project.summary,
     openGraph: {
       title: project.title,
@@ -206,7 +206,7 @@ export default async function ProjectDetailPage({
             <div className="mt-3 flex flex-col gap-4">
               {project.designApproach.map((point) => (
                 <div key={point.title}>
-                  <p className="text-sm font-semibold text-foreground">
+                  <p className="text-sm sm:text-base font-semibold text-foreground">
                     {point.title}
                   </p>
                   <p className="mt-1 text-sm leading-relaxed text-muted sm:text-base">
