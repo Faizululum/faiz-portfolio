@@ -56,7 +56,7 @@ export function About() {
           <Lanyard
             position={[0, 0, 15]}
             gravity={[0, -40, 0]}
-            frontImage="/img/photo 4.png"
+            frontImage="/img/photo-lanyard.png"
             backImage="/img/logo-tr.png"
             imageFit="contain"
             lanyardWidth={0.7}

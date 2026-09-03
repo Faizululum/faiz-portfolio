@@ -24,7 +24,7 @@ export function ProjectDetailCard({ project }: { project: Project }) {
   }
 
   return (
-    <article className="group flex w-full flex-col items-start gap-6 rounded-3xl border border-border bg-surface p-5 transition-all duration-300 hover:border-primary/40 lg:flex-row lg:gap-8 lg:p-7">
+    <article className="group flex w-full flex-col items-start gap-6 rounded-2xl md:rounded-3xl border border-border bg-surface p-5 transition-all duration-300 hover:border-primary/40 lg:flex-row lg:gap-8 lg:p-7">
       {/* Image */}
       <div className="w-full shrink-0 lg:w-112.5 xl:w-125">
         <div className="relative overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 group-hover:shadow-xl">
@@ -76,7 +76,7 @@ export function ProjectDetailCard({ project }: { project: Project }) {
         </h3>
 
         {/* Tech Stack Pills */}
-        <div className="flex flex-wrap gap-1 pt-1 mb-2">
+        <div className="md:flex flex-wrap gap-1 pt-1 mb-2 hidden">
           {project.techStack.map((tech) => (
             <span
               key={tech}
