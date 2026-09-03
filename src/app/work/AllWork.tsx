@@ -73,7 +73,7 @@ export default function AllWorkPage() {
 
       {/* Project Detail Card */}
       {visibleProjects.length > 0 ? (
-        <div className="w-full space-y-12 lg:space-y-20">
+        <div className="w-full space-y-12">
           {visibleProjects.map((project, index) => (
             <motion.div
               key={project.id}

@@ -181,7 +181,7 @@ export function Hero() {
               <ArrowRight size={16} />
             </Link>
             <Link
-              href="/cv-faizul-ulum.pdf"
+              href="/Muhammad Faizul Ulum-resume.pdf"
               target="_blank"
               className="flex items-center gap-2 rounded-full border border-primary
                         px-7 py-3 text-sm font-semibold text-primary

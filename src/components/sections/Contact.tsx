@@ -98,7 +98,7 @@ export function Contact() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "0px 0px -20% 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="mb-12 text-center flex flex-col gap-2"
+        className="md:mb-12 text-center flex flex-col gap-2"
       >
         <p className="text-sm font-medium uppercase tracking-widest text-primary">
           Get In Touch
@@ -117,7 +117,7 @@ export function Contact() {
       >
         {/* Info Contact */}
         <motion.div variants={itemVariants} className="flex flex-col">
-          <p className="text-muted text-base leading-relaxed mb-10 max-w-md">
+          <p className="text-muted text-base text-center md:text-justify leading-relaxed mb-10 max-w-md">
             Feel free to send a message via the form or contact me directly through email and social media. I&apos;m always open to discussing new projects, creative ideas, or opportunities.
           </p>
 
