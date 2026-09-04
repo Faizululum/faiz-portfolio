@@ -8,6 +8,7 @@ import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa6";
 import { motion, Variants } from "framer-motion";
 import ShapeGrid from "@/components/ShapeGrid";
 import TerminalPortfolio from "@/components/TerminalPortfolio";
+import { useTheme } from "next-themes";
 
 const ROLES = ["Frontend Web Developer.", "UI/UX Designer.", "Full Stack Developer."];
 
@@ -45,21 +46,25 @@ function useTypedRoles(roles: string[]) {
 
 export function Hero() {
   const typedRole = useTypedRoles(ROLES);
+  const { theme } = useTheme();
   const [borderColor, setBorderColor] = useState("#5b6472");
 
   useEffect(() => {
-    const frameId = requestAnimationFrame(() => {
-      const primaryColor = getComputedStyle(document.documentElement)
-        .getPropertyValue("--primary")
-        .trim();
+    const timer = setTimeout(() => {
+      const frameId = requestAnimationFrame(() => {
+        const primaryColor = getComputedStyle(document.documentElement)
+          .getPropertyValue("--primary")
+          .trim();
 
-      if (primaryColor) {
-        setBorderColor(primaryColor);
-      }
-    });
+        if (primaryColor) {
+          setBorderColor(primaryColor);
+        }
+      });
+      return () => cancelAnimationFrame(frameId);
+    }, 50); 
 
-    return () => cancelAnimationFrame(frameId);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [theme]);
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -86,7 +91,7 @@ export function Hero() {
       id="home"
       className="relative z-35 flex min-h-screen w-full items-center justify-center overflow-hidden bg-background px-6 pt-28 pb-12 sm:px-10 lg:px-16 transition-colors"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+      <div className="pointer-events-none absolute inset-0 opacity-20 mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] transition-colors">
         <ShapeGrid
           speed={0.1}
           squareSize={36}
@@ -146,7 +151,7 @@ export function Hero() {
 
           <motion.h1
             variants={itemVariants}
-            className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl"
+            className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl"
           >
             Faizul <span className="text-primary">Ulum</span>
           </motion.h1>
