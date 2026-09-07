@@ -147,7 +147,13 @@ export const projects: Project[] = [
     thumbnail: "/img/work/ukki-inventory-1.png",
     gallery: [
       "/img/work/ukki-inventory-2.png", 
-      "/img/work/ukki-inventory-3.png"
+      "/img/work/ukki-inventory-3.png",
+      "/img/work/ukki-inventory-4.png",
+      "/img/work/ukki-inventory-5.png",
+      "/img/work/ukki-inventory-6.png",
+      "/img/work/ukki-inventory-7.png",
+      "/img/work/ukki-inventory-8.png",
+      "/img/work/ukki-inventory-9.png",
     ],
     techStack: [
       "Vite",
@@ -178,7 +184,6 @@ export const projects: Project[] = [
     ],
     outcome: "Successfully delivered a centralized, secure, and automated asset management platform that minimizes manual data entry errors and prevents unauthorized asset retrieval.",
     liveUrl: "https://ukki-inventory.vercel.app/",
-    // githubUrl: "https://github.com/Faizululum/ukki-inventory",
     featured: true,
   },
   {
@@ -193,7 +198,12 @@ export const projects: Project[] = [
     description: "The official website for PT Duta Beton Mandiri, featuring a dynamic product catalog and administrative capabilities. I managed the entire project lifecycle, starting from crafting low-to-high fidelity wireframes and a design system in Figma to developing the frontend with Next.js 15 and Framer Motion. The backend is powered by Prisma and MongoDB, integrating secure image uploads via UploadThing.",
     thumbnail: "/img/work/duta-beton-1.png",
     gallery: [
-      "/img/work/duta-beton-2.png"
+      "/img/work/duta-beton-2.png",
+      "/img/work/duta-beton-3.png",
+      "/img/work/duta-beton-4.png",
+      "/img/work/duta-beton-5.png",
+      "/img/work/duta-beton-6.png",
+      "/img/work/duta-beton-7.png",
     ],
     techStack: [
       "Next.js",
@@ -243,11 +253,13 @@ export const projects: Project[] = [
     summary: "Interactive mobile app prototype for a student organization featuring a comprehensive design system.",
     description: "Designed a complete mobile application interface for UKKI (Unit Kegiatan Kerohanian Islam) using Figma. The project focused on delivering a highly interactive prototype to simulate real-world app behavior, complete with page transitions and micro-animations. I established a scalable design system from scratch, utilizing Figma's advanced features like reusable components, variants, and Auto Layout to ensure visual consistency across all screens.",
     thumbnail: "/img/work/ukki-app-1.png",
-    // gallery: [
-    //   "/img/work/portofolio_1.png",
-    //   "/img/work/portofolio_2.png",
-    //   "/img/work/portofolio_3.png"
-    // ],
+    gallery: [
+      "/img/work/ukki-app-6.png",
+      "/img/work/ukki-app-2.png",
+      "/img/work/ukki-app-3.png",
+      "/img/work/ukki-app-4.png",
+      "/img/work/ukki-app-5.png",
+    ],
     techStack: [
       "Figma",
       "UI/UX Design",
@@ -268,7 +280,6 @@ export const projects: Project[] = [
     ],
     outcome: "Delivered a visually engaging and developer-ready Figma prototype that streamlined the organization's mobile app development planning.",
     liveUrl: "https://www.figma.com/proto/K5skNivHVPuALuLGta1SOx/UKKI-App?node-id=353-1146&starting-point-node-id=2%3A2",
-    // githubUrl: "",
     featured: true,
   },
   {
@@ -284,6 +295,8 @@ export const projects: Project[] = [
     thumbnail: "/img/work/faperta-1.png",
     gallery: [
       "/img/work/faperta-2.png",
+      "/img/work/faperta-3.png",
+      "/img/work/faperta-4.png",
     ],
     techStack: [
       "WordPress",
@@ -317,6 +330,7 @@ export const projects: Project[] = [
     thumbnail: "/img/work/agrocentrum-1.png",
     gallery: [
       "/img/work/agrocentrum-2.png",
+      "/img/work/agrocentrum-3.png",
     ],
     techStack: [
       "OJS (Open Journal Systems)",
@@ -350,7 +364,9 @@ export const projects: Project[] = [
     thumbnail: "/img/work/ukki-web-1.png",
     gallery: [
       "/img/work/ukki-web-2.png", 
-      "/img/work/ukki-web-3.png"
+      "/img/work/ukki-web-3.png",
+      "/img/work/ukki-web-4.png",
+      "/img/work/ukki-web-5.png",
     ],
     techStack: [
       "WordPress",
@@ -383,7 +399,7 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary: "A modern headless e-commerce platform built to explore Next.js and Wix integrations.",
     description: "Faiz-Shop is a personal exploration project aimed at mastering headless commerce architecture. By integrating Wix as a headless backend with a custom Next.js frontend, the project focuses on delivering fast page loads, a streamlined checkout flow, and a scalable codebase for future feature additions.",
-    thumbnail: "/img/work/tes/faiz-shop-1.png",
+    thumbnail: "/img/work/faiz-shop-1.png",
     gallery: [
       "/img/work/faiz-shop-2.png", 
       "/img/work/faiz-shop-3.png"
@@ -420,11 +436,11 @@ export const projects: Project[] = [
     role: "Full-Stack Developer",
     summary: "A modern vehicle reservation system featuring secure authentication, booking management, and cloud-based image hosting.",
     description: "Developed a comprehensive vehicle reservation platform utilizing a modern MERN stack architecture. The frontend is highly optimized and responsive, built with Vite, React 19, and Tailwind CSS v4, delivering a seamless user experience for browsing and booking cars. The robust backend, powered by Express.js 5 and MongoDB, handles complex relationships between users, vehicles, and reservations. Key technical implementations include secure JWT-based authentication with bcrypt password hashing, and a streamlined media upload pipeline using Multer integrated with ImageKit for fast, cloud-based delivery of car listing images.",
-    thumbnail: "/img/work/tes/car-rental-1.png",
+    thumbnail: "/img/work/car-rental-1.png",
     gallery: [
-      "/img/work/tes/car-rental-2.png",
-      "/img/work/tes/car-rental-3.png",
-      "/img/work/tes/car-rental-4.png",
+      "/img/work/car-rental-2.png",
+      "/img/work/car-rental-3.png",
+      "/img/work/car-rental-4.png",
     ],
     techStack: [
       "Vite",
