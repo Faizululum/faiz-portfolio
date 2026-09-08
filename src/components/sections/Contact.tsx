@@ -104,7 +104,7 @@ export function Contact() {
           Get In Touch
         </p>
         <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-          Contact <span className="text-primary">Information</span>
+          Contact <span className="text-primary">Me</span>
         </h2>
       </motion.div>
 
